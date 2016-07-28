@@ -1,4 +1,4 @@
-(defproject datomic-spec "0.1-SNAPSHOT"
+(defproject org.clojars.akiel/datomic-spec "0.1-SNAPSHOT"
   :description "Specs for Datomic"
   :url "https://github.com/alexanderkiel/datomic-spec"
   :license {:name "Eclipse Public License"
