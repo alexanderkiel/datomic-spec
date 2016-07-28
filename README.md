@@ -1,5 +1,7 @@
 # Datomic Spec
 
+[![Build Status](https://travis-ci.org/alexanderkiel/datomic-spec.svg?branch=master)](https://travis-ci.org/alexanderkiel/datomic-spec)
+
 Clojure specs for all functions of the `datomic.api` namespace.
 
 ## Usage
