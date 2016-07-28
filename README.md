@@ -6,11 +6,10 @@ Clojure specs for all functions of the `datomic.api` namespace.
 
 ## Usage
 
-This library is intended to be included at dev and test time. If you use leiningen, you should include the dependency in your dev profile.
+Add the following dependency to your project.
 
 ```clojure
-(defproject my-app "0.1"
-  :profiles {:dev {:dependencies [[org.clojars.akiel/datomic-spec "0.1-alpha1"]]}})
+[org.clojars.akiel/datomic-spec "0.1-alpha1"]
 ```
 
 In order to instrument the `datomic.api` functions, you call the following in a namespace which is only loaded at dev and/or test time.
