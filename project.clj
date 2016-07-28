@@ -9,4 +9,4 @@
   :profiles {:dev
              {:dependencies [[com.datomic/datomic-free "0.9.5385"]
                              [org.clojure/test.check "0.9.0"]
-                             [juxt/iota "0.3-alpha1"]]}})
+                             [juxt/iota "0.2.2"]]}})
