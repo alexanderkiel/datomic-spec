@@ -10,7 +10,7 @@ This library is intended to be included at dev and test time. If you use leining
 
 ```clojure
 (defproject my-app "0.1"
-  :profiles {:dev {:dependencies [[org.clojars.akiel/datomic-spec "0.1-SNAPSHOT"]]}})
+  :profiles {:dev {:dependencies [[org.clojars.akiel/datomic-spec "0.1-alpha1"]]}})
 ```
 
 In order to instrument the `datomic.api` functions, you call the following in a namespace which is only loaded at dev and/or test time.
