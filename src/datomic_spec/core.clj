@@ -42,13 +42,13 @@
 
 (s/def ::addition
   (s/cat :op #{:db/add}
-         :eid :db/id
+         :eid ::entity-id
          :attr keyword?
          :val any?))
 
 (s/def ::retraction
   (s/cat :op #{:db/retract}
-         :eid :db/id
+         :eid ::entity-id
          :attr keyword?
          :val any?))
 
