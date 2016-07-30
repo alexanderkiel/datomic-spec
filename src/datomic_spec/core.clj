@@ -330,6 +330,20 @@
 (s/def ::tx-num-tx-id-date
   (s/alt :tx-num nat-int? :tx-id nat-int? :date inst?))
 
+;; ---- Schema ----------------------------------------------------------------
+
+(s/def :db/id ::entity-id)
+
+(s/def :db/unique #{:db.unique/value :db.unique/identity})
+
+(s/def :db/valueType #{:db.type/keyword :db.type/string :db.type/boolean
+                       :db.type/long :db.type/bigint :db.type/float
+                       :db.type/double :db.type/bigdec :db.type/ref
+                       :db.type/instant :db.type/uuid :db.type/uri
+                       :db.type/bytes})
+
+(s/def :db/cardinality #{:db.cardinality/one :db.cardinality/many})
+
 ;; ---- Spec Overrides --------------------------------------------------------
 
 (def spec-overrides
