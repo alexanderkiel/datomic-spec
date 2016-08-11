@@ -248,13 +248,13 @@
 (s/def ::or-clause
   (s/cat :src-var (s/? ::src-var)
          :op #{'or}
-         :clauses (s/+ (s/alt :clause ::clause :and-clause ::and-clause))))
+         :clauses (s/+ (s/or :clause ::clause :and-clause ::and-clause))))
 
 (s/def ::or-join-clause
   (s/cat :src-var (s/? ::src-var)
          :op #{'or-join}
          :rule-vars ::rule-vars
-         :clauses (s/+ (s/alt :clause ::clause :and-clause ::and-clause))))
+         :clauses (s/+ (s/or :clause ::clause :and-clause ::and-clause))))
 
 (s/def ::rule-vars
   (s/alt :vars (s/+ ::variable)
