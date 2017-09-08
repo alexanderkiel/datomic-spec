@@ -1,11 +1,12 @@
 (ns datomic-spec.core
-  (:require [clojure.spec :as s]
-            [clojure.spec.gen :as gen]
-            [clojure.spec.test :as st]
-            [clojure.string :as str]
-            [datomic.api :as d])
-  (:import [datomic Connection Database Datom Entity Log]
-           [datomic.db Datum DbId]))
+  (:require
+    [clojure.spec.alpha :as s]
+    [clojure.spec.gen.alpha :as gen]
+    [clojure.string :as str]
+    [datomic.api :as d])
+  (:import
+    [datomic Connection Database Datom Entity Log]
+    [datomic.db Datum DbId]))
 
 ;; ---- Common --------------------------------------------------------------
 
@@ -510,13 +511,3 @@
 
    `d/with
    (s/fspec :args (s/cat :db ::db :tx-data ::tx-data))})
-
-(defn instrument
-  "Instruments the datomic.api namespace.
-
-  Opts are the same as in clojure.spec.test/instrument."
-  ([]
-   (instrument nil))
-  ([opts]
-   (st/instrument (st/enumerate-namespace 'datomic.api)
-                  (merge {:spec spec-overrides} opts))))

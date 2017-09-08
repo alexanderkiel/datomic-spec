@@ -1,11 +1,13 @@
 (ns datomic-spec.core-test
-  (:require [clojure.spec :as s]
-            [clojure.test :refer :all]
-            [datomic.api :as d]
-            [datomic-spec.core :as ds :refer :all]
-            [datomic-spec.test-util :refer [db-fixture]]
-            [juxt.iota :refer [given]])
-  (:import [java.util Date]))
+  (:require
+    [clojure.spec.alpha :as s]
+    [clojure.test :refer :all]
+    [datomic.api :as d]
+    [datomic-spec.core :as ds :refer :all]
+    [datomic-spec.test-util :refer [db-fixture]]
+    [juxt.iota :refer [given]])
+  (:import
+    [java.util Date]))
 
 (use-fixtures :each db-fixture)
 

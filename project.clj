@@ -4,9 +4,9 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]]
+  :dependencies [[org.clojure/clojure "1.9.0-alpha19"]]
 
   :profiles {:dev
              {:dependencies [[com.datomic/datomic-free "0.9.5385"]
-                             [org.clojure/test.check "0.9.0"]
-                             [juxt/iota "0.2.2"]]}})
+                             [org.clojars.akiel/iota "0.1"]
+                             [org.clojure/test.check "0.9.0"]]}})
