@@ -6,9 +6,50 @@
     [datomic.api :as d])
   (:import
     [datomic Connection Database Datom Entity Log]
-    [datomic.db Datum DbId]))
+    [datomic.db Datum DbId]
+    [java.net URI URISyntaxException]))
 
 ;; ---- Common --------------------------------------------------------------
+
+(s/def :datomic-spec.core.connect/protocol
+  #{:sql :cass})
+
+(s/def :datomic-spec.core.connect/db-name
+  string?)
+
+(s/def :datomic-spec.core.connect.sql/data-source
+  some?)
+
+(s/def :datomic-spec.core.connect.sql/factory
+  some?)
+
+(s/def :datomic-spec.core.connect.cass/table
+  string?)
+
+(s/def :datomic-spec.core.connect.cass/cluster
+  some?)
+
+(defmulti connect-map-form :protocol)
+
+(defmethod connect-map-form :sql [_]
+  (println :foo)
+  (s/keys :req-un [:datomic-spec.core.connect/protocol
+                   :datomic-spec.core.connect/db-name
+                   (or :datomic-spec.core.connect.sql/data-source
+                       :datomic-spec.core.connect.sql/factory)]))
+
+(defmethod connect-map-form :cass [_]
+  (s/keys :req-un [:datomic-spec.core.connect/protocol
+                   :datomic-spec.core.connect/db-name
+                   :datomic-spec.core.connect.cass/table
+                   :datomic-spec.core.connect.cass/cluster]))
+
+(s/def ::connect-map-form
+  (s/multi-spec connect-map-form :protocol))
+
+(s/def ::connect-uri
+  (s/or :string-form (s/and string? #(try (URI. %) (catch URISyntaxException _)))
+        :map-form ::connect-map-form))
 
 (s/def ::conn
   #(instance? Connection %))
@@ -361,7 +402,7 @@
    (s/fspec :args (s/cat :db ::db))
 
    `d/connect
-   (s/fspec :args (s/cat :uri string?))
+   (s/fspec :args (s/cat :uri ::connect-uri))
 
    `d/create-database
    (s/fspec :args (s/cat :uri string?))

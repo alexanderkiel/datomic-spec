@@ -27,6 +27,22 @@
     (when-not spec (throw (Exception. (str "Missing fn-spec for " fn-sym))))
     (s/valid? spec ret)))
 
+(deftest connect-uri-test
+  (testing "valid"
+    (are [uri] (s/valid? ::ds/connect-uri uri)
+      "datomic:mem://test"
+      "datomic:free://transactor-host:8080/foo"
+      {:protocol :sql
+       :db-name "foo"
+       :data-source :bar}
+      {:protocol :cass
+       :db-name "foo"
+       :table "bar"
+       :cluster :baz}))
+  (testing "invalid"
+    (are [uri] (not (s/valid? ::ds/connect-uri uri))
+      "\ndatomic:free://transactor-host:8080/foo")))
+
 (deftest as-of
   (is (valid-args? `d/as-of (db) 1))
   (is (valid-args? `d/as-of (db) (Date.))))
