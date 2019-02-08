@@ -4,14 +4,19 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.9.0"]]
+  :dependencies
+  [[org.clojure/spec.alpha "0.2.176"]]
 
-  :plugins [[jonase/eastwood "0.2.5" :exclusions [org.clojure/clojure]]]
+  :plugins
+  [[jonase/eastwood "0.2.5" :exclusions [org.clojure/clojure]]]
 
-  :profiles {:dev
-             {:dependencies [[com.datomic/datomic-free "0.9.5385"]
-                             [org.clojars.akiel/iota "0.1"]
-                             [org.clojure/test.check "0.9.0"]]}}
+  :profiles
+  {:dev
+   {:dependencies
+    [[com.datomic/datomic-free "0.9.5697"]
+     [org.clojars.akiel/iota "0.1"]
+     [org.clojure/clojure "1.10.0"]
+     [org.clojure/test.check "0.9.0"]]}}
 
   :aliases
   {"lint" ["eastwood" "{:exclude-linters [:constant-test :suspicious-test]}"]})
