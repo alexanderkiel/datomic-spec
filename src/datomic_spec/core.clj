@@ -410,7 +410,7 @@
    `d/datoms
    (s/fspec :args (s/cat :db ::db
                          :index ::index-type
-                         :components (s/* ::entity-identifier)))
+                         :components (s/* some?)))
 
    `d/db
    (s/fspec :args (s/cat :conn any?))

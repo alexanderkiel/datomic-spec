@@ -71,11 +71,15 @@
     (is (valid-args? `d/datoms (db) :eavt :db/ident)))
   (testing "EAVT with lookup-ref"
     (is (valid-args? `d/datoms (db) :eavt [:db/ident :db/ident])))
-  (testing "EAVT"
+  (testing "AEVT"
     (is (valid-args? `d/datoms (db) :aevt)))
-  (testing "EAVT"
+  (testing "AEVT with attribute"
+    (is (valid-args? `d/datoms (db) :aevt :db/ident)))
+  (testing "AVET"
     (is (valid-args? `d/datoms (db) :avet)))
-  (testing "EAVT"
+  (testing "AVET with attribute and value"
+    (is (valid-args? `d/datoms (db) :avet :db/ident "1")))
+  (testing "VAET"
     (is (valid-args? `d/datoms (db) :vaet))))
 
 (deftest db-test
