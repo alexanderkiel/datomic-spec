@@ -72,10 +72,10 @@
   #(instance? Entity %))
 
 (s/def ::tempids
-  (s/map-of int? nat-int?))
+  (s/map-of (s/or :string string? :int int?) nat-int?))
 
 (s/def ::tempid
-  #(instance? DbId %))
+  (s/or :string string? :id #(instance? DbId %)))
 
 (s/def ::index-type
   #{:eavt :aevt :avet :vaet})
