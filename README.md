@@ -10,7 +10,7 @@ Clojure specs for all functions of the `datomic.api` namespace.
 Add the following dependency to your project.
 
 ```clojure
-[org.clojars.akiel/datomic-spec "0.4"]
+[org.clojars.akiel/datomic-spec "0.5"]
 ```
 
 In order to instrument the `datomic.api` functions, you call the following in a namespace which is only loaded at dev and/or test time.
