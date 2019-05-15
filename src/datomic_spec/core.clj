@@ -524,8 +524,9 @@
    `d/sync-schema
    (s/fspec :args (s/cat :conn ::conn :t nat-int?))
 
-   `d/t->tx
-   (s/fspec :args (s/cat :t nat-int?) :ret nat-int?)
+   ;; TODO: errors in clojure.spec.test.alpha$spec_checking_fn$fn__3026 cannot be cast to clojure.lang.IFn$LO
+   ;; `d/t->tx
+   ;; (s/fspec :args (s/cat :t nat-int?) :ret nat-int?)
 
    `d/tempid
    (s/fspec :args (s/cat :partition keyword? :n (s/? int?)) :ret ::tempid)
@@ -539,8 +540,9 @@
    `d/transact-async
    (s/fspec :args (s/cat :connection ::conn :tx-data ::tx-data))
 
-   `d/tx->t
-   (s/fspec :args (s/cat :tx nat-int?) :ret nat-int?)
+   ;; TODO: error in clojure.spec.test.alpha$spec_checking_fn$fn__3026 cannot be cast to clojure.lang.IFn$OL
+   ;; `d/tx->t
+   ;; (s/fspec :args (s/cat :tx nat-int?) :ret nat-int?)
 
    `d/tx-range
    (s/fspec :args (s/cat :log ::log
