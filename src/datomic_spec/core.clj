@@ -316,7 +316,7 @@
                                     :blank #{'_})))))
 
 (s/def ::constant
-  (s/or :str string? :num number? :kw keyword?))
+  (s/or :str string? :num number? :kw keyword? :bool boolean?))
 
 (s/def ::pred-expr
   (s/spec (s/cat :expr (s/spec (s/cat :pred (s/alt :sym symbol?
